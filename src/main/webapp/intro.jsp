@@ -25,7 +25,7 @@
 	<header class="py-5 bg-light border-bottom mb-4">
 		<div class="container">
 			<div class="text-center my-5">
-				<h1 class="fw-bolder">Intro page</h1>
+				<h1 class="fw-bolder">Memo page</h1>
 			</div>
 		</div>
 	</header>
@@ -39,12 +39,12 @@
 					<thead>
 						<tr>
 							<th colspan="2"
-								style="backgroud-color: #eeeeee; text-align: left;">Introduction</th>
+								style="backgroud-color: #eeeeee; text-align: left;">Write Memo</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
-							<td><textarea class="form-control" placeholder="please write Introduction"
+							<td><textarea class="form-control" placeholder="please write Memo"
 									name="introContent" maxlength="3000" style="height: 150px;" required></textarea></td>
 						</tr>
 					</tbody>

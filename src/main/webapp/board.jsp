@@ -15,7 +15,16 @@
 <body>
 	<!-- Menu -->
 	<%@ include file="menu.jsp"%>
+
 <%
+		if(userID == null){
+			PrintWriter script = response.getWriter();
+			script.println("<script>");
+			script.println("alert('로그인이 필요합니다.')");
+			script.println("location.href = 'login.jsp'");
+			script.println("</script>");	
+		}
+				
 		//가장 기본 페이지 1로 설정
 		int pageNumber = 1;
 		
@@ -60,7 +69,7 @@
 					%>					
 				</tbody>
 			</table>
-			
+			</div>
 			<%
 				//페이지 넘버 보여주는 부분
 				if(pageNumber != 1){
@@ -76,7 +85,7 @@
 			
 			<a href="writeBoard.jsp" class="btn btn-primary pull-right">글 작성하기</a>
 			<p>
-		</div>
+		
 	</div>
 	<!-- Footer-->
 	<%@ include file="footer.jsp"%>

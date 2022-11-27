@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="board.Board"%>
-<%@ page import="board.BoardDAO" %>
+<%@ page import="blog.Blog"%>
+<%@ page import="blog.BlogDAO" %>
 <%@ page import="java.io.PrintWriter" %>
 <!DOCTYPE html>
 <html>
@@ -27,13 +27,13 @@
 			script.println("</script>");	
 		}
 		
-		int boardID=0;
-		if(request.getParameter("boardID") != null){
-			boardID = Integer.parseInt(request.getParameter("boardID"));
+		int blogID=0;
+		if(request.getParameter("blogID") != null){
+			blogID = Integer.parseInt(request.getParameter("blogID"));
 		}
 		
 		//유효한 글인지 체크하는 부분
-		if(boardID == 0){
+		if(blogID == 0){
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("alert('유효하지 않은 글입니다.')");
@@ -41,26 +41,26 @@
 			script.println("</script>");	
 		}		
 		
-		Board board = new BoardDAO().getBoard(boardID);
+		Blog blog = new BlogDAO().getBlog(blogID);
 		
 		//작성자와 로그인한 사용자가 같은 사용자인지 확인하는 부분
-		if(!userID.equals(board.getUserID())){
+		if(!userID.equals(blog.getUserID())){
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("alert('삭제가능한 권한이 없습니다.')");
-			script.println("location.href = 'board.jsp'");
+			script.println("location.href = 'blog.jsp'");
 			script.println("</script>");	
 		}
 		else {
 				//실제 Data 삭제를 위해 삭제 함수를 호출하는 부분
-				BoardDAO boardDAO = new BoardDAO();
-				int result = boardDAO.delete(boardID); 
+				BlogDAO blogDAO = new BlogDAO();
+				int result = blogDAO.delete(blogID); 
 				
 				if(result >= 0){
 					PrintWriter script = response.getWriter();
 					script.println("<script>");
 					script.println("alert('성공적으로 글을 삭제하였습니다.')");
-					script.println("location.href = 'board.jsp'");
+					script.println("location.href = 'blog.jsp'");
 					script.println("</script>");	
 				} else if(result == -1){
 					PrintWriter script = response.getWriter();

@@ -1,12 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="board.Board" %>
-<%@ page import="board.BoardDAO" %>
-<%@ page import="java.util.ArrayList" %>	
+<%@ page import="blog.Blog"%>
+<%@ page import="blog.BlogDAO"%>
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>Board</title>
+<title>BlogView</title>
 <link rel="icon" type="image/x-icon"
 	href="./resources/assets/favicon.ico" />
 <link href="./resources/css/main.css" rel="stylesheet" />
@@ -15,64 +14,121 @@
 <body>
 	<!-- Menu -->
 	<%@ include file="menu.jsp"%>
-	
-        <!-- Page content-->
-        <div class="container mt-5">
-            <div class="row">
-                <div class="col-lg-8">
-                    <!-- Post content-->
-                    <article>
-                        <!-- Post header-->
-                        <header class="mb-4">
-                            <!-- Post title-->
-                            <h1 class="fw-bolder mb-1">Welcome to Blog Post!</h1>
-                            <!-- Post meta content-->
-                            <div class="text-muted fst-italic mb-2">Posted on January 1, 2022</div>
-                            <!-- Post categories-->
-                            <a class="badge bg-secondary text-decoration-none link-light" href="#!">Web Design</a>
-                        </header>
-                        <!-- Preview image figure-->
-                        <figure class="mb-4"><img class="img-fluid rounded" src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" alt="..." /></figure>
-                        <!-- Post content-->
-                        <section class="mb-5">
-                            <p class="fs-5 mb-4">Science is an enterprise that should be cherished as an activity of the free human mind. Because it transforms who we are, how we live, and it gives us an understanding of our place in the universe.</p>
-                            <p class="fs-5 mb-4">The universe is large and old, and the ingredients for life as we know it are everywhere, so there's no reason to think that Earth would be unique in that regard. Whether of not the life became intelligent is a different question, and we'll see if we find that.</p>
-                            <p class="fs-5 mb-4">If you get asteroids about a kilometer in size, those are large enough and carry enough energy into our system to disrupt transportation, communication, the food chains, and that can be a really bad day on Earth.</p>
-                            <h2 class="fw-bolder mb-4 mt-5">I have odd cosmic thoughts every day</h2>
-                            <p class="fs-5 mb-4">For me, the most fascinating interface is Twitter. I have odd cosmic thoughts every day and I realized I could hold them to myself or share them with people who might be interested.</p>
-                            <p class="fs-5 mb-4">Venus has a runaway greenhouse effect. I kind of want to know what happened there because we're twirling knobs here on Earth without knowing the consequences of it. Mars once had running water. It's bone dry today. Something bad happened there as well.</p>
-                        </section>
-                    </article>
-                    <!-- Comments section-->
-                    <section class="mb-5">
-                        <div class="card bg-light">
-                            <div class="card-body">
-                                <!-- Comment form-->
-                                <form class="mb-4"><textarea class="form-control" rows="3" placeholder="Join the discussion and leave a comment!"></textarea></form>
-                                <!-- Comment with nested comments-->
-                                <div class="d-flex mb-4">
-                                    <!-- Parent comment-->
-                                    <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
-                                    <div class="ms-3">
-                                        <div class="fw-bold">Commenter Name</div>
-                                        If you're going to lead a space frontier, it has to be government; it'll never be private enterprise. Because the space frontier is dangerous, and it's expensive, and it has unquantified risks.
+<%
+	if(userID == null){
+		PrintWriter script = response.getWriter();
+		script.println("<script>");
+		script.println("alert('로그인이 필요합니다.')");
+		script.println("location.href = 'login.jsp'");
+		script.println("</script>");	
+	}
 
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-                <!-- Side widgets-->
-                <div class="col-lg-4">
-                    <div class="card mb-4">
-                        <div class="card-header">Side Widget</div>
-                        <div class="card-body">You can put anything you want inside of these side widgets. They are easy to use, and feature the Bootstrap 5 card component!</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+	int blogID=0;
+	if(request.getParameter("blogID") != null){
+		blogID = Integer.parseInt(request.getParameter("blogID"));
+	}
 	
+	if(blogID == 0){
+		PrintWriter script = response.getWriter();
+		script.println("<script>");
+		script.println("alert('유효하지 않은 글입니다.')");
+		script.println("location.href = 'blog.jsp'");
+		script.println("</script>");	
+	}
+	
+	BlogDAO blogDAO = new BlogDAO();
+	Blog blog = new Blog();
+	blog = blogDAO.getBlog(blogID);
+%>
+
+
+	<!-- Page content-->
+	<div class="container mt-5">
+		<div class="row">
+			<div class="col-lg-8">
+				<!-- Post content-->
+				<article>
+					<!-- Post header-->
+					<header class="mb-4">
+						<!-- Post title-->
+						<h1 class="fw-bolder mb-1"><%=blog.getMainTitle() %></h1>
+						<!-- Post meta content-->
+						<div class="text-muted fst-italic mb-2"><%=blog.getBlogDate().substring(0,11) + blog.getBlogDate().substring(11,13) + ":" + blog.getBlogDate().substring(14,16) %>
+						| | Bloger -> <%=blog.getUserID() %></div>
+					</header>
+					<!-- Preview image figure-->
+					<figure class="mb-4">
+						<img class="img-fluid rounded"
+							src="./resources/images/<%=blog.getFileName()%>"  />
+					</figure>
+					<!-- Post content-->
+					<section class="mb-5">
+						<p class="fs-5 mb-4"><%=blog.getMainContent() %></p>
+						<h2 class="fw-bolder mb-4 mt-5"><%=blog.getServeTitle() %></h2>
+						<p class="fs-5 mb-4"><%=blog.getServeContent() %></p>
+					</section>
+					<%
+						//현재 접속한 사람이 글 작성자라면 수정/삭제 가능하도록 수정 버튼 보이기
+						if(userID != null && userID.equals(blog.getUserID())) { 
+					%>
+					<a href="modifyBlog.jsp" class="btn btn-primary"
+						style="background-color: #198754; text-align: center;">Redrawing</a>
+					<a onclick="return confirm('정말로 삭제하시겠습니까?')" href="blogDeleteAction.jsp?blogID=<%=blogID%>"
+					 class="btn btn-primary" style="background-color: #dc3545; text-align: center;">삭제</a>
+					<%
+						}
+					%>	
+					<p>
+				</article>
+			</div>
+			<!-- Side widgets-->
+			<div class="col-lg-4">
+				<div class="card mb-4">
+							<div class="card-header">
+								[<%=userName%>
+								Bloging] &nbsp 소개글
+							</div>
+							<%
+							if (intro == null) {
+							%>
+							<div class="card-body">소개글을 설정해주세요!</div>
+							<%
+							} else {
+							%>
+							<div class="card-body">
+								<%=intro.getIntroContent().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>")%>
+							</div>
+							<%
+							}
+							%>
+						</div>
+				<div class="card mb-4">
+					<div class="card-header">Menu</div>
+					<div class="card-body">
+						<div class="row">
+							<div class="col-sm-6">
+								<ul class="list-unstyled mb-0">
+									<li><a href="main.jsp">Home</a></li>
+									<li>┉┉┉┉┉</li>
+									<li><a href="board.jsp">Board</a></li>
+									<li>┉┉┉┉┉</li>
+									<%if (intro==null) { %>
+									<li><a href="intro.jsp">Intro</a></li>
+									<%}else { %>
+									<li><a href="introModify.jsp">Edit</a></li>
+									<%} %>
+									<li>┉┉┉┉┉</li>
+									<li><a href="writeBlog.jsp">Draw</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
 	<!-- Footer-->
 	<%@ include file="footer.jsp"%>
 	<!-- Bootstrap core JS-->

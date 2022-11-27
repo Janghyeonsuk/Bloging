@@ -1,13 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="board.Board"%>
+<%@page import="board.Board"%>
 <%@ page import="board.BoardDAO" %>
 <%@ page import="java.io.PrintWriter" %>
+<%
+request.setCharacterEncoding("UTF-8");
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content= "text/html; charset=UTF-8">
-<title>Bloging</title>
+<title>JSP 게시판 웹 사이트</title>
 </head>
 <body>
 	<%
@@ -47,27 +51,36 @@
 		if(!userID.equals(board.getUserID())){
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
-			script.println("alert('삭제가능한 권한이 없습니다.')");
+			script.println("alert('수정가능한 권한이 없습니다.')");
 			script.println("location.href = 'board.jsp'");
 			script.println("</script>");	
 		}
 		else {
-				//실제 Data 삭제를 위해 삭제 함수를 호출하는 부분
+			if(request.getParameter("boardTitle") == null || request.getParameter("boardContent") == null 
+					|| request.getParameter("boardTitle").equals("") || request.getParameter("boardContent").equals("")) {
+				PrintWriter script = response.getWriter();
+				script.println("<script>");
+				script.println("alert('모든 칸을 입력해주십시오.')");
+				script.println("history.back()");
+				script.println("</script>");	
+			}
+			else {
+				//실제 Data 수정을 위해 수정 함수를 호출하는 부분
 				BoardDAO boardDAO = new BoardDAO();
-				int result = boardDAO.delete(boardID); 
+				int result = boardDAO.modify(boardID, request.getParameter("boardTitle"), request.getParameter("boardContent")); 
 				
 				if(result >= 0){
 					PrintWriter script = response.getWriter();
 					script.println("<script>");
-					script.println("alert('성공적으로 글을 삭제하였습니다.')");
 					script.println("location.href = 'board.jsp'");
 					script.println("</script>");	
 				} else if(result == -1){
 					PrintWriter script = response.getWriter();
 					script.println("<script>");
-					script.println("alert('글 삭제에 실패하였습니다.')");
+					script.println("alert('글 수정에 실패하였습니다.')");
 					script.println("history.back()");
 					script.println("</script>");	
+				}
 			}
 		}
 

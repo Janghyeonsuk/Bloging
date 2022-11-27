@@ -37,8 +37,9 @@
 			%>
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-				<li class="nav-item"><a class="nav-link" href="login.jsp">Login</a></li>
-				<li class="nav-item"><a class="nav-link active" aria-current="page" href="main.jsp">Home</a></li>
+				<li class="nav-item"><a class="nav-link active"
+					aria-current="page" href="login.jsp">Login</a></li>
+				<li class="nav-item"><a class="nav-link" href="main.jsp">Home</a></li>
 			</ul>
 		</div>
 		<%
@@ -46,16 +47,16 @@
 			%>
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-				<li class="nav-item"><a class="nav-link" href="userLogoutAction.jsp">Logout</a></li>
-				<li class="nav-item"><a class="nav-link" href="main.jsp">Home</a></li>
-				<li class="nav-item"><a class="nav-link" href="board.jsp">Board</a></li>
+				<li class="nav-item"><a class="nav-link active" aria-current="page" href="userLogoutAction.jsp">Logout</a></li>
+				<li class="nav-item"><a class="nav-link active" aria-current="page" href="main.jsp">Home</a></li>
+				<li class="nav-item"><a class="nav-link active" aria-current="page" href="board.jsp">Board</a></li>
 				<%if (intro==null) { %>
 				<li class="nav-item"><a class="nav-link" href="intro.jsp">Intro</a></li>
 				<%}else { %>
-				<li class="nav-item"><a class="nav-link" href="introModify.jsp">Edit</a></li>
+				<li class="nav-item"><a class="nav-link active" aria-current="page" href="introModify.jsp">Edit</a></li>
 				<%} %>
-				<li class="nav-item"><a class="nav-link active"
-					aria-current="page" href="blog.jsp"><% out.print(userName+ "'s Bloging");%></a></li>
+				<li class="nav-item"><a class="nav-link active" aria-current="page" href="blog.jsp">Bloging</a></li>
+				<li class="nav-item"><a class="nav-link active" aria-current="page" href="#!"><% out.print(userName+ "'s Page");%></a></li>	
 			</ul>
 		</div>
 		<%
