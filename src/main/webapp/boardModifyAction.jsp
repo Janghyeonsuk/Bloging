@@ -22,7 +22,6 @@ request.setCharacterEncoding("UTF-8");
 			userID = (String) session.getAttribute("userID");
 		}
 		
-		//로그인 안 한 사용자 체크하는 부분
 		if(userID == null){	
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
@@ -36,7 +35,6 @@ request.setCharacterEncoding("UTF-8");
 			boardID = Integer.parseInt(request.getParameter("boardID"));
 		}
 		
-		//유효한 글인지 체크하는 부분
 		if(boardID == 0){
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
@@ -47,7 +45,7 @@ request.setCharacterEncoding("UTF-8");
 		
 		Board board = new BoardDAO().getBoard(boardID);
 		
-		//작성자와 로그인한 사용자가 같은 사용자인지 확인하는 부분
+
 		if(!userID.equals(board.getUserID())){
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
@@ -56,8 +54,7 @@ request.setCharacterEncoding("UTF-8");
 			script.println("</script>");	
 		}
 		else {
-			if(request.getParameter("boardTitle") == null || request.getParameter("boardContent") == null 
-					|| request.getParameter("boardTitle").equals("") || request.getParameter("boardContent").equals("")) {
+			if( request.getParameter("boardTitle").equals("") || request.getParameter("boardContent").equals("")) {
 				PrintWriter script = response.getWriter();
 				script.println("<script>");
 				script.println("alert('모든 칸을 입력해주십시오.')");
@@ -65,7 +62,6 @@ request.setCharacterEncoding("UTF-8");
 				script.println("</script>");	
 			}
 			else {
-				//실제 Data 수정을 위해 수정 함수를 호출하는 부분
 				BoardDAO boardDAO = new BoardDAO();
 				int result = boardDAO.modify(boardID, request.getParameter("boardTitle"), request.getParameter("boardContent")); 
 				

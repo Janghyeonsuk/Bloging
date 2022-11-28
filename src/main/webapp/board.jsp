@@ -25,11 +25,9 @@
 			script.println("</script>");	
 		}
 				
-		//가장 기본 페이지 1로 설정
 		int pageNumber = 1;
 		
 		if(request.getParameter("pageNumber") != null){
-			//정수형으로 타입 변경해주는 부분
 			pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
 		}
 	%>
@@ -45,8 +43,8 @@
 			<table class="table table-striped" style="text-align: center; border:1px solid #dddddd">
 				<thead>
 					<tr>
-						<th style="backgroud-color:#eeeeee; text-align: center;"> 번호 </th>
-						<th style="backgroud-color:#eeeeee; text-align: center;"> 제목 </th>
+						<th style="backgroud-color:#eeeeee; text-align: center;"> 글번호 </th>
+						<th style="backgroud-color:#eeeeee; text-align: center;"> 글제목 </th>
 						<th style="backgroud-color:#eeeeee; text-align: center;"> 작성자 </th>
 						<th style="backgroud-color:#eeeeee; text-align: center;"> 작성일 </th>
 					</tr>
@@ -71,7 +69,6 @@
 			</table>
 			</div>
 			<%
-				//페이지 넘버 보여주는 부분
 				if(pageNumber != 1){
 			%>
 				<a href="board.jsp?pageNumber=<%=pageNumber - 1%>" class="btn btn-success">이전</a>
@@ -83,12 +80,11 @@
 				}
 			%>
 			
-			<a href="writeBoard.jsp" class="btn btn-primary pull-right">글 작성하기</a>
+			<a href="writeBoard.jsp" class="btn btn-primary pull-right" style="float: right;">글 작성하기</a>
 			<p>
-		
 	</div>
 	<!-- Footer-->
-	<%@ include file="footer.jsp"%>
+	<jsp:include page="footer.jsp" />
 	<!-- Bootstrap core JS-->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

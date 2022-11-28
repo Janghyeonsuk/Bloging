@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="board.Board"%>
-<%@ page import="board.BoardDAO" %>
+<%@ page import="blog.Blog"%>
+<%@ page import="blog.BlogDAO" %>
+<%@ page import="comment.Comment"%>
+<%@ page import="comment.CommentDAO"%>
 <%@ page import="java.io.PrintWriter" %>
 <!DOCTYPE html>
 <html>
@@ -26,42 +28,38 @@
 			script.println("</script>");	
 		}
 		
-		int boardID=0;
-		if(request.getParameter("boardID") != null){
-			boardID = Integer.parseInt(request.getParameter("boardID"));
+		int blogID=0;
+		if(request.getParameter("blogID") != null){
+			blogID = Integer.parseInt(request.getParameter("blogID"));
 		}
 		
-		if(boardID == 0){
-			PrintWriter script = response.getWriter();
-			script.println("<script>");
-			script.println("alert('유효하지 않은 글입니다.')");
-			script.println("location.href = 'board.jsp'");
-			script.println("</script>");	
-		}		
+		int commentID=0;
+		if(request.getParameter("commentID") != null){
+			commentID = Integer.parseInt(request.getParameter("commentID"));
+		}	
+
+		Comment comment = new CommentDAO().getComment(commentID);
 		
-		Board board = new BoardDAO().getBoard(boardID);
-		
-		if(!userID.equals(board.getUserID())){
+		if(!userID.equals(comment.getUserID())){
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("alert('삭제가능한 권한이 없습니다.')");
-			script.println("location.href = 'board.jsp'");
+			script.println("location.href = 'blog.jsp'");
 			script.println("</script>");	
 		}
 		else {
-				BoardDAO boardDAO = new BoardDAO();
-				int result = boardDAO.delete(boardID); 
+				CommentDAO commentDAO = new CommentDAO();
+				int result = commentDAO.delete(commentID); 
 				
 				if(result >= 0){
 					PrintWriter script = response.getWriter();
 					script.println("<script>");
-					script.println("alert('성공적으로 글을 삭제하였습니다.')");
-					script.println("location.href = 'board.jsp'");
+					script.println("location.href = 'blogView.jsp?blogID='" + blogID);
 					script.println("</script>");	
 				} else if(result == -1){
 					PrintWriter script = response.getWriter();
 					script.println("<script>");
-					script.println("alert('글 삭제에 실패하였습니다.')");
+					script.println("alert('댓글 삭제에 실패하였습니다.')");
 					script.println("history.back()");
 					script.println("</script>");	
 			}

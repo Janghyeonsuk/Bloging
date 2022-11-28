@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content= "text/html; charset=UTF-8">
-<title>JSP 게시판 웹 사이트</title>
+<title>BOARD MODIFY</title>
 <link rel="icon" type="image/x-icon"
 	href="./resources/assets/favicon.ico" />
 <link href="./resources/css/main.css" rel="stylesheet" />
@@ -61,7 +61,7 @@
 	<!-- 게시판 글쓰기 양식 부분 -->
 	<div class="container">
 		<div class="row">
-			<form method="post" action="modifyAction.jsp?boardID=<%=board.getBoardID()%>">
+			<form method="post" action="boardModifyAction.jsp?boardID=<%=board.getBoardID()%>">
 				<table class="table table-striped" style="text-align: center; border:1px solid #dddddd">
 					<thead>
 						<tr><th colspan="2" style="backgroud-color:#eeeeee; text-align: center;"> 게시판 글 수정 양식 </th></tr>
@@ -75,9 +75,9 @@
 						</tr>
 					</tbody>
 				</table>
-				<input type="submit" class="btn btn-primary pull-right" value="수정하기"></input>
-				<p>
+				<input type="submit" class="btn btn-success" style="float: right;" value="수정하기"></input>
 			</form>
+			<p>
 		</div>
 	</div>
 	<!-- Footer-->

@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>소개글 작성</title>
+<title>MEMO 작성</title>
 </head>
 <body>
 	<%

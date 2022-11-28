@@ -10,7 +10,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>JSP 게시판 웹 사이트</title>
+<title>LOGIN</title>
 </head>
 <body>
 	<%
@@ -18,15 +18,15 @@
 	
 	String SQL = "SELECT userName FROM USER WHERE userID = ?";
 	
-	//로그인이 되어있으면, 로그인 창에 접근을 못하게 하기 위해 세션 확인을 해주는 부분
+
 	String userID = null;
 	String userName = null;
-	if (session.getAttribute("userID") != null) { //로그인 혹은 회원가입을 통해 이미 세션이 있는 상태라면,
-		userID = (String) session.getAttribute("userID"); // userID 세팅
+	if (session.getAttribute("userID") != null) {
+		userID = (String) session.getAttribute("userID");
 		userName = (String) session.getAttribute("userName");
 	}
 
-	if (userID != null) { //userID가 null이 아니라는 것은 이미 로그인 한 것!
+	if (userID != null) {
 		PrintWriter script = response.getWriter();
 		script.println("<script>");
 		script.println("alert('이미 로그인 되어있는 사용자 입니다.' + userID + ')'");
@@ -60,7 +60,7 @@
 	} else if (result == -2) {
 		PrintWriter script = response.getWriter();
 		script.println("<script>");
-		script.println("alert('데이터베이스 오류가 발생했습니다.')");
+		script.println("alert('데이터베이스에 오류가 발생했습니다.')");
 		script.println("history.back()");
 		script.println("</script>");
 	}

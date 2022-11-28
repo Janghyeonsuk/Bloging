@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>ALL BLOG</title>
+<title>MY BLOG</title>
 <link rel="icon" type="image/x-icon"
 	href="./resources/assets/favicon.ico" />
 <link href="./resources/css/main.css" rel="stylesheet" />
@@ -25,16 +25,18 @@
 		script.println("</script>");
 	}
 
+	//가장 기본 페이지 1로 설정
 	int pageNumber = 1;
 
 	if (request.getParameter("pageNumber") != null) {
+		//정수형으로 타입 변경해주는 부분
 		pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
 	}
 	%>
 
 	<div class="container">
 		<div class="text-center my-5">
-			<h1 class="fw-bolder"> All Bloging Peed</h1>
+			<h1 class="fw-bolder"><%=userName%>'s Bloging</h1>
 			<p>
 		</div>
 		<div class="row">
@@ -43,8 +45,12 @@
 			<%
 			BlogDAO blogDAO = new BlogDAO();
 			ArrayList<Blog> list = blogDAO.getList(pageNumber);
+			
+			int count=0;
 
 			for (int i = 0; i < list.size(); i++) {
+				 if(userID.equals(list.get(i).getUserID())){
+		               count++;
 			%>
 							
 							<a href="blogView.jsp?blogID=<%=list.get(i).getBlogID()%>"><img class="card-img-top"
@@ -55,37 +61,46 @@
 								<p>
 								<h2 class="card-title"><%=list.get(i).getMainTitle()%></h2>
 								<p>
-								<p class="card-text"><%=list.get(i).getMainContent().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>")%></p>
+								<p class="card-text"><%=list.get(i).getMainContent()%></p>
 								<a class="btn btn-primary" style="float: right;" href="blogView.jsp?blogID=<%=list.get(i).getBlogID()%>">Read more</a>
 							</div>
 							<%
-								}
+									}
+								}				
 							%>
-							<%if(list==null || list.size()==0) {%>
+							<%if(list == null || list.size()==0) {%>
 							<a href="#!"><img class="card-img-top"
 								src="https://dummyimage.com/850x400/ced4da/6c757d.jpg" /></a>
 							<div class="card-body">
-								<div class="small text-muted">Posted on January 1, 2022</div>
+								<div class="small text-muted">Today</div>
 								<h2 class="card-title">Welcome to Blog Post!</h2>
 								<p class="card-text">How about Drawing Bloging?</p>
 								<a class="btn btn-primary" href="#!">Let's Drawing</a>
+							</div>
+							<%} %>
+							<%if(count == 0) {%>
+							<a href="#!"><img class="card-img-top"
+								src="https://dummyimage.com/850x400/ced4da/6c757d.jpg" /></a>
+							<div class="card-body">
+								<h2 class="card-title">작성하신 Blog가 존재하지 않습니다. 버튼을 통해서 작성한 Blog를 찾으세요.</h2>
 							</div>
 							<%} %>
 						</div>
 							<%
 							if (pageNumber != 1) {
 							%>
-							<a href="blog.jsp?pageNumber=<%=pageNumber - 1%>" class="btn btn-success" style="float: left;">이전</a>
+							<a href="myBlog.jsp?pageNumber=<%=pageNumber - 1%>" class="btn btn-success" style="float: left;">이전</a>
 							<%
 							}
 							if (blogDAO.nextPage(pageNumber + 1)) {
 							%>
-							<a href="blog.jsp?pageNumber=<%=pageNumber + 1%>"class="btn btn-success" style="float: left;">다음</a>
+							<a href="myBlog.jsp?pageNumber=<%=pageNumber + 1%>"class="btn btn-success" style="float: left;">다음</a>
 							<%
 							}
 							%>
-						<a href="writeBlog.jsp" class="btn btn-primary" style="background-color: #6610f2; float: right;  text-align: center;">Drawing</a>
+						<a href="writeBlog.jsp" class="btn btn-primary" style="background-color: #6610f2; float: right; text-align: center;">Drawing</a>
 						
+						<p>
 					</div>
 
 					<div class="col-lg-4">
@@ -137,11 +152,11 @@
 							</div>
 						</div>
 					</div>
-					<p>
 				</div>
 			</div>
+		</div>
 		<!-- Footer-->
-		<jsp:include page="footer.jsp" />
+		<%@ include file="footer.jsp"%>
 		<!-- Bootstrap core JS-->
 		<script
 			src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

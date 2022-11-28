@@ -6,8 +6,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-import board.Board;
-
 public class BlogDAO {
 	private ArrayList<Blog> listOfBlogs = new ArrayList<Blog>();
 	private Connection connection;
@@ -43,7 +41,7 @@ public class BlogDAO {
 
 		return "";
 	}
-	// 가장 최근 게시물의 ID값을 가져오는 함수
+	
 		public int getNextID() {
 			String SQL = "SELECT blogID from BLOG ORDER BY blogID DESC";
 
@@ -59,7 +57,7 @@ public class BlogDAO {
 				e.printStackTrace();
 			}
 
-			return -1; // DB 오류
+			return -1;
 		}
 		
 		public int write(String mainTitle, String mainContent, String userID,String serveTitle, String serveContent, String fileName) {
@@ -158,8 +156,8 @@ public class BlogDAO {
 			return null;
 		}
 
-		public int modify(int blogID, String mainTitle, String mainContent, String serveTitle, String serveContent, String fileName) {
-			String SQL = "UPDATE BOARD SET mainTitle = ? , mainContent = ?, serveTitle = ? , serveContent = ?, fileName= ? WHERE blogID = ?";
+		public int modify(int blogID, String mainTitle, String mainContent, String serveTitle, String serveContent) {
+			String SQL = "UPDATE BLOG SET mainTitle = ? , mainContent = ?, serveTitle = ?, serveContent = ? WHERE blogID = ?";
 
 			try {
 				PreparedStatement preparedstatement = connection.prepareStatement(SQL);
@@ -167,8 +165,7 @@ public class BlogDAO {
 				preparedstatement.setString(2, mainContent);
 				preparedstatement.setString(3, serveTitle);
 				preparedstatement.setString(4, serveContent);
-				preparedstatement.setString(5, fileName);
-				preparedstatement.setInt(6, blogID);
+				preparedstatement.setInt(5, blogID);
 
 				return preparedstatement.executeUpdate();
 			} catch (Exception e) {
@@ -177,9 +174,37 @@ public class BlogDAO {
 
 			return -1;
 		}
+		
+		public int unavailable() {
+			String SQL = "UPDATE BLOG SET blogAvailable = 0";
 
+			try {
+				PreparedStatement preparedstatement = connection.prepareStatement(SQL);
+
+				return preparedstatement.executeUpdate();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			return -1;
+		}
+		
+		public int available() {
+			String SQL = "UPDATE BLOG SET blogAvailable = 1";
+
+			try {
+				PreparedStatement preparedstatement = connection.prepareStatement(SQL);
+
+				return preparedstatement.executeUpdate();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			return -1;
+		}
+		
 		public int delete(int blogID) {
-			String SQL = "UPDATE BOARD SET blogAvailable = 0 WHERE blogID = ?";
+			String SQL = "DELETE FROM BLOG WHERE blogID = ?";
 
 			try {
 				PreparedStatement preparedstatement = connection.prepareStatement(SQL);

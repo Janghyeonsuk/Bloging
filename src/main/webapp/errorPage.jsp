@@ -28,7 +28,6 @@
 			name="slide" id="slide03">
 		<div class="slidewrap">
 			<ul class="slidelist">
-				<!-- 슬라이드 영역 -->
 				<li class="slideitem"><a> <img
 						src="./resources/images/img4.png" border="0" height="500">
 				</a></li>
@@ -39,7 +38,6 @@
 						src="./resources/images/img1.png" border="0" height="500">
 				</a></li>
 
-				<!-- 좌,우 슬라이드 버튼 -->
 				<div class="slide-control">
 					<div>
 						<label for="slide03" class="left"></label> <label for="slide02"
@@ -56,7 +54,6 @@
 				</div>
 
 			</ul>
-			<!-- 페이징 -->
 			<ul class="slide-pagelist">
 				<li><label for="slide01"></label></li>
 				<li><label for="slide02"></label></li>
@@ -65,12 +62,8 @@
 		</div>
 	</div>
 
-	
-	
-
-	
 	<!-- Footer-->
-	<%@ include file="footer.jsp"%>
+	<jsp:include page="footer.jsp" />
 	<!-- Bootstrap core JS-->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

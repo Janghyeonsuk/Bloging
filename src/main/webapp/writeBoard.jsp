@@ -20,7 +20,15 @@
 			script.println("</script>");	
 		}
 	%>
-	<!-- 게시판 글쓰기 양식 부분 -->
+	
+	<header class="py-5 bg-light border-bottom mb-4">
+		<div class="container">
+			<div class="text-center my-5">
+				<h1 class="fw-bolder">Write Board</h1>
+			</div>
+		</div>
+	</header>
+	
 	<div class="container">
 		<div class="row">
 			<form method="post" action="boardWriteAction.jsp">
@@ -43,13 +51,13 @@
 						</tr>
 					</tbody>
 				</table>
-				<input type="submit" class="btn btn-primary pull-right" value="저장하기"></input>
+				<input type="submit" class="btn btn-primary pull-right" style="float: right;" value="작성하기"></input>
 			</form>
 		</div>
 	</div>
 	<p>
 		<!-- Footer-->
-		<%@ include file="footer.jsp"%>
+		<jsp:include page="footer.jsp" />
 		<!-- Bootstrap core JS-->
 		<script
 			src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

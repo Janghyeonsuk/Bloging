@@ -41,7 +41,6 @@ public class BoardDAO {
 		return "";
 	}
 
-	// 가장 최근 게시물의 ID값을 가져오는 함수
 	public int getNextID() {
 		String SQL = "SELECT boardID from BOARD ORDER BY boardID DESC";
 
@@ -57,7 +56,7 @@ public class BoardDAO {
 			e.printStackTrace();
 		}
 
-		return -1; // DB 오류
+		return -1;
 	}
 
 	public int write(String boardTitle, String userID, String boardContent) {
@@ -163,9 +162,37 @@ public class BoardDAO {
 
 		return -1;
 	}
+	
+	public int unavailable() {
+		String SQL = "UPDATE BOARD SET boardAvailable = 0";
 
+		try {
+			PreparedStatement preparedstatement = connection.prepareStatement(SQL);
+
+			return preparedstatement.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return -1;
+	}
+	
+	public int available() {
+		String SQL = "UPDATE BOARD SET boardAvailable = 1";
+
+		try {
+			PreparedStatement preparedstatement = connection.prepareStatement(SQL);
+
+			return preparedstatement.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return -1;
+	}
+	
 	public int delete(int boardID) {
-		String SQL = "UPDATE BOARD SET boardAvailable = 0 WHERE boardID = ?";
+		String SQL = "DELETE FROM BOARD WHERE boardID = ?";
 
 		try {
 			PreparedStatement preparedstatement = connection.prepareStatement(SQL);

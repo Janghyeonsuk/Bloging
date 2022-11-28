@@ -18,7 +18,6 @@
 			userID = (String) session.getAttribute("userID");
 		}
 		
-		//로그인 안 한 사용자 체크하는 부분
 		if(userID == null){	
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
@@ -32,7 +31,6 @@
 			blogID = Integer.parseInt(request.getParameter("blogID"));
 		}
 		
-		//유효한 글인지 체크하는 부분
 		if(blogID == 0){
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
@@ -43,7 +41,6 @@
 		
 		Blog blog = new BlogDAO().getBlog(blogID);
 		
-		//작성자와 로그인한 사용자가 같은 사용자인지 확인하는 부분
 		if(!userID.equals(blog.getUserID())){
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
@@ -52,7 +49,6 @@
 			script.println("</script>");	
 		}
 		else {
-				//실제 Data 삭제를 위해 삭제 함수를 호출하는 부분
 				BlogDAO blogDAO = new BlogDAO();
 				int result = blogDAO.delete(blogID); 
 				

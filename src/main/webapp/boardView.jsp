@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content= "text/html; charset=UTF-8">
-<title>BoardView</title>
+<title>Board View</title>
 <link rel="icon" type="image/x-icon"
 	href="./resources/assets/favicon.ico" />
 <link href="./resources/css/main.css" rel="stylesheet" />
@@ -54,7 +54,7 @@
 		<div class="row">
 			<table class="table table-striped" style="text-align: center; border:1px solid #dddddd">
 				<thead>
-					<tr><th colspan="3" style="backgroud-color:#eeeeee; text-align: center;"> 게시판 글 보기 </th></tr>
+					<tr><th colspan="3" style="backgroud-color:#eeeeee; text-align: center;"> 상세보기 </th></tr>
 				</thead>
 				<tbody>
 					<tr>
@@ -86,7 +86,7 @@
 				//현재 접속한 사람이 글 작성자라면 수정/삭제 가능하도록 수정 버튼 보이기
 				if(userID != null && userID.equals(board.getUserID())) { 
 			%>
-					<a href="boardModify.jsp?boardID=<%=boardID%>" class="btn btn-primary">수정</a>
+					<a href="boardModify.jsp?boardID=<%=boardID%>" class="btn btn-success">수정</a>
 					<a onclick="return confirm('정말로 삭제하시겠습니까?')" href="boardDeleteAction.jsp?boardID=<%=boardID%>" class="btn btn-primary warning"
 					style="background-color: #dc3545; text-align: center;">삭제</a>
 			<%

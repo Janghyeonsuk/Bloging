@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content= "text/html; charset=UTF-8">
-<title>JSP 게시판 웹 사이트</title>
+<title>Redrawing</title>
 <link rel="icon" type="image/x-icon"
 	href="./resources/assets/favicon.ico" />
 <link href="./resources/css/main.css" rel="stylesheet" />
@@ -34,7 +34,7 @@
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("alert('유효하지 않은 글입니다.')");
-			script.println("location.href = 'board.jsp'");
+			script.println("location.href = 'blog.jsp'");
 			script.println("</script>");	
 		}
 		
@@ -46,14 +46,14 @@
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("alert('수정가능한 권한이 없습니다.')");
-			script.println("location.href = 'board.jsp'");
+			script.println("location.href = 'blog.jsp'");
 			script.println("</script>");	
 		}
 	%>
 	<header class="py-5 bg-light border-bottom mb-4">
 		<div class="container">
 			<div class="text-center my-5">
-				<h1 class="fw-bolder"></h1>
+				<h1 class="fw-bolder">Redrawing Bloging</h1>
 			</div>
 		</div>
 	</header>
@@ -61,38 +61,36 @@
 	<!-- 글쓰기 양식 부분 -->
 	<div class="container">
 		<div class="row">
-			<form method="post" encType = "multipart/form-data" action="blogModifyAction.jsp">
+			<form method="post" action="blogModifyAction.jsp?blogID=<%=blog.getBlogID()%>">
 				<table class="table table-striped"
 					style="text-align: center; border: 1px solid #dddddd">
 					<tbody>
 						<tr>
 							<td><input type="text" class="form-control"
-								placeholder="주 제목" name="mainTitle" maxlength="30" value="<%=blog.getMainTitle()%>"></input></td>
+								placeholder="주 제목" name="mainTitle" maxlength="50" value="<%=blog.getMainTitle()%>"></input></td>
 						</tr>
 						<tr>
 							<td><textarea class="form-control" placeholder="주 내용"
-									name="mainContent" maxlength="2000" style="height: 200px;"><%=blog.getMainContent()%></textarea></td>
+									name="mainContent" maxlength="5000" style="height: 350px;"><%=blog.getMainContent()%></textarea></td>
 						</tr>
 
 						<tr>
 							<td><input type="text" class="form-control"
-								placeholder="부 제목" name="serveTitle" maxlength="30" value="<%=blog.getServeTitle()%>"></input></td>
+								placeholder="부 제목" name="serveTitle" maxlength="50" value="<%=blog.getServeTitle()%>"></input></td>
 						</tr>
 						<tr>
 							<td><textarea class="form-control" placeholder="부 내용"
-									name="serveContent" maxlength="2000" style="height: 200px;"><%=blog.getServeContent()%></textarea></td>
-						</tr>
-						<tr>
-							<td><input type="file" name="fileName"></td>
+									name="serveContent" maxlength="2000" style="height: 350px;"><%=blog.getServeContent()%></textarea></td>
 						</tr>
 					</tbody>
 				</table>
-				<input type="submit" class="btn btn-primary pull-right" value="수정하기"></input>
+				<input type="submit" class="btn btn-success" style="float: right;" value="Redraw"></input>
 			</form>
+			<p>
 		</div>
 	</div>
 	<!-- Footer-->
-	<%@ include file="footer.jsp"%>
+	<jsp:include page="footer.jsp" />
 	<!-- Bootstrap core JS-->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

@@ -10,7 +10,6 @@ public class IntroductionDAO {
 	private PreparedStatement preparedstatement;
 	private ResultSet result;
 
-	// 생성자는 인스턴스를 생성할 때 자동으로 실행되는 부분)
 	public IntroductionDAO() {
 		try {
 			String dbURL = "jdbc:mysql://localhost:3306/WEBDATABASE";

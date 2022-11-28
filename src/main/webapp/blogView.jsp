@@ -1,7 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import="java.util.ArrayList"%>
 <%@ page import="blog.Blog"%>
 <%@ page import="blog.BlogDAO"%>
+<%@ page import="comment.Comment"%>
+<%@ page import="comment.CommentDAO"%>
 <html>
 <head>
 <meta charset="UTF-8" />
@@ -63,35 +66,74 @@
 					</figure>
 					<!-- Post content-->
 					<section class="mb-5">
-						<p class="fs-5 mb-4"><%=blog.getMainContent() %></p>
+						<p class="fs-5 mb-4"><%=blog.getMainContent().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>") %></p>
 						<h2 class="fw-bolder mb-4 mt-5"><%=blog.getServeTitle() %></h2>
-						<p class="fs-5 mb-4"><%=blog.getServeContent() %></p>
+						<p class="fs-5 mb-4"><%=blog.getServeContent().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>") %></p>
 					</section>
 					<%
-						//현재 접속한 사람이 글 작성자라면 수정/삭제 가능하도록 수정 버튼 보이기
 						if(userID != null && userID.equals(blog.getUserID())) { 
 					%>
-					<a href="modifyBlog.jsp" class="btn btn-primary"
-						style="background-color: #198754; text-align: center;">Redrawing</a>
+					<hr>
+					<a href="blogModify.jsp?blogID=<%=blogID%>" class="btn btn-success"">Redrawing</a>
 					<a onclick="return confirm('정말로 삭제하시겠습니까?')" href="blogDeleteAction.jsp?blogID=<%=blogID%>"
-					 class="btn btn-primary" style="background-color: #dc3545; text-align: center;">삭제</a>
+					 class="btn btn-primary" style="background-color: #dc3545; float: right; text-align: center;">삭제</a>
 					<%
 						}
 					%>	
 					<p>
+					<hr>
 				</article>
+				
+				<!-- Comments section-->
+                    <section class="mb-5">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <!-- Comment form-->
+                                <form class="mb-4" method ="post" action="commentWriteAction.jsp">
+                                	<textarea class="form-control" name="commentContent" rows="2" placeholder="Join the discussion and leave a comment!"></textarea>
+                                	<input type="hidden" name= "blogID" value="<%=blogID %>">
+                                	<input type="submit" style="float: right;">
+                                </form>
+                                <%
+									CommentDAO commentDAO = new CommentDAO();
+									ArrayList<Comment> list = commentDAO.getList();
+
+									for (int i = 0; i < list.size(); i++) {
+										 if(blogID == list.get(i).getBlogID()){
+								%>
+                                <!-- Single comment-->
+                                <div class="d-flex">
+                                    <div class="ms-3">
+                                        <div class="fw-bold">
+                                        	<%=list.get(i).getUserID() %>
+                                        </div>
+                                        <%=list.get(i).getCommentContent() %>
+                                        <% if(userID.equals(list.get(i).getUserID())){ %>
+                                         <a onclick="return confirm('정말로 삭제하시겠습니까?')" href = "commentDeleteAction.jsp?commentID=<%= list.get(i).getCommentID() %>" >삭제</a>
+                                         <% } %>
+                                    </div>
+                                </div>
+                                <p>
+                                 <% 
+										 }
+									}
+								 %>
+                               
+                            </div>
+                        </div>
+                    </section>
 			</div>
 			<!-- Side widgets-->
 			<div class="col-lg-4">
 				<div class="card mb-4">
 							<div class="card-header">
 								[<%=userName%>
-								Bloging] &nbsp 소개글
+								Bloging] &nbsp Memo
 							</div>
 							<%
 							if (intro == null) {
 							%>
-							<div class="card-body">소개글을 설정해주세요!</div>
+							<div class="card-body">메모를 작성하세요! 언제 까먹을지 모릅니다.</div>
 							<%
 							} else {
 							%>
@@ -130,7 +172,7 @@
 	</div>
 
 	<!-- Footer-->
-	<%@ include file="footer.jsp"%>
+	<jsp:include page="footer.jsp" />
 	<!-- Bootstrap core JS-->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

@@ -15,7 +15,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>게시판 글쓰기</title>
+<title>BLOG WRITE</title>
 </head>
 <body>
 	<%
@@ -29,7 +29,6 @@
 			String readFolder="C:\\jsp-work\\JSPWebProject\\src\\main\\webapp\\resources\\images";
 			int maxSize =5 * 1024 * 1024;
 			String encType="utf-8";
-
 			MultipartRequest multi = new MultipartRequest(request, readFolder, maxSize,encType,new DefaultFileRenamePolicy());
 			
 			String mainTitle = multi.getParameter("mainTitle");
@@ -68,7 +67,6 @@
 					script.println("</script>");	
 				}
 			}
-
 	%>
 </body>
 </html>

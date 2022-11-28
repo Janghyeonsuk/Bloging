@@ -25,7 +25,7 @@
 	<header class="py-5 bg-light border-bottom mb-4">
 		<div class="container">
 			<div class="text-center my-5">
-				<h1 class="fw-bolder">Drawing Blog</h1>
+				<h1 class="fw-bolder">Drawing bloging</h1>
 			</div>
 		</div>
 	</header>
@@ -43,7 +43,7 @@
 						</tr>
 						<tr>
 							<td><textarea class="form-control" placeholder="주 내용"
-									name="mainContent" maxlength="5000" style="height: 200px;"></textarea></td>
+									name="mainContent" maxlength="5000" style="height: 350px;"></textarea></td>
 						</tr>
 
 						<tr>
@@ -52,20 +52,21 @@
 						</tr>
 						<tr>
 							<td><textarea class="form-control" placeholder="부 내용"
-									name="serveContent" maxlength="3000" style="height: 200px;"></textarea></td>
+									name="serveContent" maxlength="3000" style="height: 350px;"></textarea></td>
 						</tr>
 						<tr>
 							<td><input type="file" name="fileName"></td>
 						</tr>
 					</tbody>
 				</table>
-				<input type="submit" class="btn btn-primary pull-right" value="Bloging"></input>
+				<input type="submit" class="btn btn-primary pull-right" style="float: right;" value="Bloging"></input>
+				<p>
 			</form>
 		</div>
 	</div>
 	<p>
 		<!-- Footer-->
-		<%@ include file="footer.jsp"%>
+		<jsp:include page="footer.jsp" />
 		<!-- Bootstrap core JS-->
 		<script
 			src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

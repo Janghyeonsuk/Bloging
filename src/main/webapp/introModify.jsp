@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>BLOGING</title>
+<title>MEMO MODIFY</title>
 <link rel="icon" type="image/x-icon"
 	href="./resources/assets/favicon.ico" />
 <link href="./resources/css/main.css" rel="stylesheet" />
@@ -49,13 +49,13 @@
 						</tr>
 					</tbody>
 				</table>
-				<input type="submit" class="btn btn-success" value="수정하기"></input>
+				<input type="submit" class="btn btn-success" style="float: right;" value="수정하기"></input>
 			</form>
 		</div>
 	</div>
 	<p>
 	<!-- Footer-->
-	<%@ include file="footer.jsp"%>
+	<jsp:include page="footer.jsp" />
 	<!-- Bootstrap core JS-->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
