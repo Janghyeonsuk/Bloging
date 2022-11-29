@@ -13,7 +13,7 @@ public class CommentDAO {
 
 	public CommentDAO() {
 		try {
-			String dbURL = "jdbc:mysql://localhost:3306/WEBDATABASE";
+			String dbURL = "jdbc:mysql://localhost:3306/WEBDATABASE?characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false";
 			String dbID = "root";
 			String dbPassword = "jhs993010!";
 

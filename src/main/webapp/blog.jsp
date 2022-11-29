@@ -52,8 +52,8 @@
 								<div class="small text-muted"><%=list.get(i).getBlogDate().substring(0, 11) + list.get(i).getBlogDate().substring(11, 13) + ":"+ list.get(i).getBlogDate().substring(14, 16)%>
 								  | | Bloger -> <%=list.get(i).getUserID() %></div>
 								<p>
-								<h2 class="card-title"><%=list.get(i).getMainTitle()%></h2>
-								<p>
+								<h1 class="card-title"><%=list.get(i).getMainTitle()%></h1>
+								<hr>
 								<p class="card-text"><%=list.get(i).getMainContent().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>")%></p>
 								<a class="btn btn-primary" style="float: right;" href="blogView.jsp?blogID=<%=list.get(i).getBlogID()%>">Read more</a>
 							</div>
@@ -65,10 +65,10 @@
 							<a href="#!"><img class="card-img-top"
 								src="https://dummyimage.com/850x400/ced4da/6c757d.jpg" /></a>
 							<div class="card-body">
-								<div class="small text-muted">Posted on January 1, 2022</div>
-								<h2 class="card-title">Welcome to Blog Post!</h2>
-								<p class="card-text">How about Drawing Bloging?</p>
-								<a class="btn btn-primary" href="#!">Let's Drawing</a>
+								<div class="small text-muted">2022</div>
+								<h2 class="card-title">블로깅에 오신것을 축하드립니다.</h2>
+								<p class="card-text">블로깅에 기록해보는건 어때요?</p>
+								<a class="btn btn-primary" href="writeBlog.jsp" style="float: left;">Let's Drawing</a>
 							</div>
 							<%} %>
 						</div>

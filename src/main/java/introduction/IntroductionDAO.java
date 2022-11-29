@@ -12,7 +12,7 @@ public class IntroductionDAO {
 
 	public IntroductionDAO() {
 		try {
-			String dbURL = "jdbc:mysql://localhost:3306/WEBDATABASE";
+			String dbURL = "jdbc:mysql://localhost:3306/WEBDATABASE?useUnicode=true&characterEncoding=UTF-8";
 			String dbID = "root";
 			String dbPassword = "jhs993010!";
 

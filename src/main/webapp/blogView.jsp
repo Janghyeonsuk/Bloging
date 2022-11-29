@@ -66,8 +66,9 @@
 					</figure>
 					<!-- Post content-->
 					<section class="mb-5">
-						<p class="fs-5 mb-4"><%=blog.getMainContent().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>") %></p>
-						<h2 class="fw-bolder mb-4 mt-5"><%=blog.getServeTitle() %></h2>
+						<hr>
+						<p class="fs-5 mb-4"><%=blog.getServeTitle() %></p>
+						<h2 class="fw-bolder mb-4 mt-5"><%=blog.getMainContent().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>") %></h2>
 						<p class="fs-5 mb-4"><%=blog.getServeContent().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>") %></p>
 					</section>
 					<%

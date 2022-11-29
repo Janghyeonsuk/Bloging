@@ -13,7 +13,7 @@ public class BlogDAO {
 
 	public BlogDAO() {
 		try {
-			String dbURL = "jdbc:mysql://localhost:3306/WEBDATABASE";
+			String dbURL = "jdbc:mysql://localhost:3306/WEBDATABASE?useUnicode=true&characterEncoding=UTF-8";
 			String dbID = "root";
 			String dbPW = "jhs993010!";
 

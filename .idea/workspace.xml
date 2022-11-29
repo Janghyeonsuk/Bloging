@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d8e70829-10af-4120-8893-729ca6e553ef" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/blog/Blog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/blog/Blog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/blog/BlogDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/blog/BlogDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/board/BoardDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/board/BoardDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/comment/CommentDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/comment/CommentDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/introduction/IntroductionDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/introduction/IntroductionDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/user/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/user/UserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/blog.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/blog.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/blogModify.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/blogModify.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/blogModifyAction.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/blogModifyAction.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/blogView.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/blogView.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/board.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/board.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/commentDeleteAction.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/commentDeleteAction.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/images/dummy13.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/images/dummy2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/images/dummy3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/images/dummy4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/images/dummy5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/images/dummy6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/images/dummy7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/images/git.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/images/git.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/images/git1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/images/mysql.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/userJoinAction.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/userJoinAction.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/writeBoard.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/writeBoard.jsp" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="2IDlhJ7WCE1dGVrI62coEocYOK5" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/jsp-work/JSPWebProject"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d8e70829-10af-4120-8893-729ca6e553ef" name="Changes" comment="" />
+      <created>1669724153706</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1669724153706</updated>
+      <workItem from="1669724155681" duration="19000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

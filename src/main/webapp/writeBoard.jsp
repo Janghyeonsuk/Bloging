@@ -11,6 +11,7 @@
 <body>
 	<!-- Menu -->
 	<%@ include file="menu.jsp"%>
+	
 	<%
 		if(userID == null){
 			PrintWriter script = response.getWriter();
@@ -52,6 +53,7 @@
 					</tbody>
 				</table>
 				<input type="submit" class="btn btn-primary pull-right" style="float: right;" value="작성하기"></input>
+				<p>
 			</form>
 		</div>
 	</div>

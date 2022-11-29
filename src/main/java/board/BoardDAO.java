@@ -12,7 +12,7 @@ public class BoardDAO {
 
 	public BoardDAO() {
 		try {
-			String dbURL = "jdbc:mysql://localhost:3306/WEBDATABASE";
+			String dbURL = "jdbc:mysql://localhost:3306/WEBDATABASE?characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false";
 			String dbID = "root";
 			String dbPW = "jhs993010!";
 

@@ -66,6 +66,7 @@
 				if(result >= 0){
 					PrintWriter script = response.getWriter();
 					script.println("<script>");
+					script.println("alert('글 수정을 완료하였습니다.')");
 					script.println("location.href = 'blog.jsp'");
 					script.println("</script>");	
 				} else if(result == -1){

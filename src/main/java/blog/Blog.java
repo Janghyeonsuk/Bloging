@@ -1,7 +1,5 @@
 package blog;
 
-import java.util.ArrayList;
-
 public class Blog {
 	private int blogID;
 	private String userID;			

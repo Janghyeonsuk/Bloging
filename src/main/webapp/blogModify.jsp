@@ -71,12 +71,12 @@
 						</tr>
 						<tr>
 							<td><textarea class="form-control" placeholder="주 내용"
-									name="mainContent" maxlength="5000" style="height: 350px;"><%=blog.getMainContent()%></textarea></td>
+									name="mainContent" maxlength="5000" style="height: 350px;"><%=blog.getServeTitle()%></textarea></td>
 						</tr>
 
 						<tr>
 							<td><input type="text" class="form-control"
-								placeholder="부 제목" name="serveTitle" maxlength="50" value="<%=blog.getServeTitle()%>"></input></td>
+								placeholder="부 제목" name="serveTitle" maxlength="50" value="<%=blog.getMainContent()%>"></input></td>
 						</tr>
 						<tr>
 							<td><textarea class="form-control" placeholder="부 내용"

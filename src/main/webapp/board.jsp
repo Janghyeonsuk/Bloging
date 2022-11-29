@@ -5,7 +5,7 @@
 <%@ page import="java.util.ArrayList" %>	
 <html>
 <head>
-<meta charset="UTF-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8 ">
 <title>Board</title>
 <link rel="icon" type="image/x-icon"
 	href="./resources/assets/favicon.ico" />

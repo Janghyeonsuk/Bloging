@@ -15,6 +15,7 @@
 <body>
 	<%
 	request.setCharacterEncoding("UTF-8");
+	
 	String userID = request.getParameter("userID");
 	
 	if (USER.getUserID().equals("") || USER.getUserPassword().equals("") || USER.getUserName().equals("")) {
