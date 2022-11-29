@@ -11,7 +11,7 @@
 
 [2. 기술](#2-기술)
 
-[3. database EER Diagram](#3-database-eer-diagram)
+[3. ER 다이어그램](#3-ER-다이어그램)
 
 [4. 기능](#4-기능)
 
