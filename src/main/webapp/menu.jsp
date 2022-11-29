@@ -55,11 +55,15 @@
 				<li class="nav-item"><a class="nav-link active" aria-current="page" href="introModify.jsp">Edit</a></li>
 				<%} %>
 				<li class="nav-item"><a class="nav-link active" aria-current="page" href="blog.jsp">Bloging</a></li>
-				<li class="nav-item"><a class="nav-link active" aria-current="page" href="myBlog.jsp"><% out.print(userName+ "'s Page");%></a></li>	
+				<li class="nav-item"><a class="nav-link active" aria-current="page" href="myBlog.jsp"><% out.print(userName+ "'s Page");%></a></li>
+				
+				<%if (userID.equals("admin")){ %>
+				<li class="nav-item"><a class="nav-link" href="security.jsp">Admin</a></li>
+				<%
+						} 
+					}
+				%>
 			</ul>
 		</div>
-		<%
-			}
-			%>
 	</div>
 </nav>

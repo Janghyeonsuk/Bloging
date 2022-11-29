@@ -83,6 +83,7 @@
 			<a href="writeBoard.jsp" class="btn btn-primary pull-right" style="float: right;">글 작성하기</a>
 			<p>
 	</div>
+	<br>	
 	<!-- Footer-->
 	<jsp:include page="footer.jsp" />
 	<!-- Bootstrap core JS-->

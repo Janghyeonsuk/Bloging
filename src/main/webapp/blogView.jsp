@@ -107,9 +107,9 @@
                                         <div class="fw-bold">
                                         	<%=list.get(i).getUserID() %>
                                         </div>
-                                        <%=list.get(i).getCommentContent() %>
+                                        <%=list.get(i).getCommentContent().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>") %>
                                         <% if(userID.equals(list.get(i).getUserID())){ %>
-                                         <a onclick="return confirm('정말로 삭제하시겠습니까?')" href = "commentDeleteAction.jsp?commentID=<%= list.get(i).getCommentID() %>" >삭제</a>
+                                         &nbsp <a onclick="return confirm('정말로 삭제하시겠습니까?')" href = "commentDeleteAction.jsp?commentID=<%= list.get(i).getCommentID() %>" >삭제</a>
                                          <% } %>
                                     </div>
                                 </div>

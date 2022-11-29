@@ -82,7 +82,7 @@
 							<a href="#!"><img class="card-img-top"
 								src="https://dummyimage.com/850x400/ced4da/6c757d.jpg" /></a>
 							<div class="card-body">
-								<h2 class="card-title">작성하신 Blog가 존재하지 않습니다. 버튼을 통해서 작성한 Blog를 찾으세요.</h2>
+								<h2 class="card-title">이 페이지에는 작성한 Blog가 존재하지 않습니다. 버튼을 통해서 작성한 Blog를 찾아보세요.</h2>
 							</div>
 							<%} %>
 						</div>

@@ -83,7 +83,6 @@
 			<a href="board.jsp" class="btn btn-primary">목록</a>
 			
 			<%
-				//현재 접속한 사람이 글 작성자라면 수정/삭제 가능하도록 수정 버튼 보이기
 				if(userID != null && userID.equals(board.getUserID())) { 
 			%>
 					<a href="boardModify.jsp?boardID=<%=boardID%>" class="btn btn-success">수정</a>

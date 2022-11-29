@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.0.0">
+  <zoom_level>4</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>260</x>
+      <y>200</y>
+      <w>116</w>
+      <h>208</h>
+    </coordinates>
+    <panel_attributes>blog::Blog
+--
+-blogID: int
+-userID: String
+-blogDate: String
+-mainTitle: String
+-mainContent: String
+-serveTitle: String
+-serveContent: String
+-fileName: String
+-blogAvailable: int
+--
++getBlogID(): int
++setBlogID(int blogID): void
++getUserID(): String
++setUserID(String userID): void
++getBlogDate(): String
++setBlogDate(String blogDate): void
++getMainTitle(): String
++setMainTitle(String mainTitle): void
++getMainContent(): String
++setMainContent(String mainContent): void
++getServeTitle(): String
++setServeTitle(String serveTitle): void
++getServeContent(): String
++setServeContent(String serveContent): void
++getFileName(): String
++setFileName(String fileName): void
++getBlogAvailable(): int
++setBlogAvailable(int blogAvailable): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>668</x>
+      <y>192</y>
+      <w>120</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>board::Board
+--
+-boardID: int
+-boardTitle: String
+-userID: String
+-boardDate: String
+-boardContent: String
+-boardAvailable: int
+--
++getBoardID(): int
++setBoardID(int boardID): void
++getBoardTitle(): String
++setBoardTitle(String boardTitle): void
++getBoardDate(): String
++setBoardDate(String boardDate): void
++getBoardContent(): String
++setBoardContent(String boardContent): void
++getBoardAvailable(): int
++setBoardAvailable(int boardAvailable): void
++getUserID(): String
++setUserID(String userID): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>84</x>
+      <y>436</y>
+      <w>300</w>
+      <h>124</h>
+    </coordinates>
+    <panel_attributes>blog::BlogDAO
+--
+-listOfBlogs = new ArrayList&lt;Blog&gt;(): ArrayList&lt;Blog&gt;
+-connection: Connection
+-result: ResultSet
+--
++BlogDAO(): ctor
++getDate(): String
++getNextID(): int
++write(String mainTitle, String mainContent, String userID, String serveTitle, String serveContent, String fileName): int
++getList(int pageNumber): ArrayList&lt;Blog&gt;
++nextPage(int pageNumber): boolean
++getBlog(int blogID): Blog
++modify(int blogID, String mainTitle, String mainContent, String serveTitle, String serveContent): int
++unavailable(): int
++available(): int
++delete(int blogID): int
++getBlogs(): ArrayList&lt;Blog&gt;
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>648</x>
+      <y>404</y>
+      <w>164</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>board::BoardDAO
+--
+-connection: Connection
+-result: ResultSet
+--
++BoardDAO(): ctor
++getDate(): String
++getNextID(): int
++write(String boardTitle, String userID, String boardContent): int
++getList(int pageNumber): ArrayList&lt;Board&gt;
++nextPage(int pageNumber): boolean
++getBoard(int boardID): Board
++modify(int boardID, String boardTitle, String boardContent): int
++unavailable(): int
++available(): int
++delete(int boardID): int
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>252</x>
+      <y>44</y>
+      <w>136</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>comment::Comment
+--
+-commentID: int
+-blogID: int
+-userID: String
+-commentContent: String
+--
++getCommentID(): int
++setCommentID(int commentID): void
++getBlogID(): int
++setBlogID(int blogID): void
++getUserID(): String
++setUserID(String userID): void
++getCommentContent(): String
++setCommentContent(String commentContent): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>44</x>
+      <y>44</y>
+      <w>180</w>
+      <h>92</h>
+    </coordinates>
+    <panel_attributes>comment::CommentDAO
+--
+-listOfComments = new ArrayList&lt;Comment&gt;(): ArrayList&lt;Comment&gt;
+-connection: Connection
+-result: ResultSet
+--
++CommentDAO(): ctor
++getComment(int commentID): Comment
++getNextID(): int
++getList(): ArrayList&lt;Comment&gt;
++getComments(): ArrayList&lt;Comment&gt;
++write(int blogID, String userID, String commentContent): int
++delete(int commentID): int
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>784</x>
+      <y>52</y>
+      <w>136</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>introduction::IntroductionDAO
+--
+-connection: Connection
+-preparedstatement: PreparedStatement
+-result: ResultSet
+--
++IntroductionDAO(): ctor
++getIntro(String userID): Introduction
++write(String userID, String IntroductionContent): int
++modify(String userID, String introContent): int
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>440</x>
+      <y>328</y>
+      <w>124</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>user::UserDAO
+--
+-connection: Connection
+-preparedstatement: PreparedStatement
+-result: ResultSet
+--
++UserDAO(): ctor
++join(User user): int
++login(String userID, String userPassword): int
++getName(String userID): String
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>600</x>
+      <y>56</y>
+      <w>112</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>introduction::Introduction
+--
+-userID: String
+-introContent: String
+--
++getUserID(): String
++setUserID(String userID): void
++getIntroContent(): String
++setIntroContent(String introContent): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>436</x>
+      <y>196</y>
+      <w>124</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>user::User
+--
+-userID: String
+-userPassword: String
+-userName: String
+--
++getUserID(): String
++setUserID(String userID): void
++getUserPassword(): String
++setUserPassword(String userPassword): void
++getUserName(): String
++setUserName(String userName): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>384</x>
+      <y>76</y>
+      <w>124</w>
+      <h>124</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;290.0;10.0;290.0;290.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>496</x>
+      <y>76</y>
+      <w>108</w>
+      <h>124</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>250.0;10.0;10.0;10.0;10.0;290.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>316</x>
+      <y>144</y>
+      <w>12</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;130.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>376</x>
+      <y>224</y>
+      <w>68</w>
+      <h>92</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;210.0;150.0;210.0;150.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>556</x>
+      <y>248</y>
+      <w>120</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>280.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>492</x>
+      <y>276</y>
+      <w>12</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;130.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>724</x>
+      <y>332</y>
+      <w>12</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;180.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>708</x>
+      <y>80</y>
+      <w>84</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>190.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>216</x>
+      <y>76</y>
+      <w>44</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;90.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>228</x>
+      <y>404</y>
+      <w>92</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;80.0;10.0;10.0;210.0;10.0</additional_attributes>
+  </element>
+</diagram>

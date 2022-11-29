@@ -46,7 +46,6 @@
 
 			for (int i = 0; i < list.size(); i++) {
 			%>
-							
 							<a href="blogView.jsp?blogID=<%=list.get(i).getBlogID()%>"><img class="card-img-top"
 								src="./resources/images/<%=list.get(i).getFileName()%>" width="850" height="400"/></a>
 							<div class="card-body">
@@ -58,6 +57,7 @@
 								<p class="card-text"><%=list.get(i).getMainContent().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>")%></p>
 								<a class="btn btn-primary" style="float: right;" href="blogView.jsp?blogID=<%=list.get(i).getBlogID()%>">Read more</a>
 							</div>
+							<hr>
 							<%
 								}
 							%>

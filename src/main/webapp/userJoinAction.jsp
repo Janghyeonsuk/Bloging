@@ -15,6 +15,7 @@
 <body>
 	<%
 	request.setCharacterEncoding("UTF-8");
+	String userID = request.getParameter("userID");
 	
 	if (USER.getUserID().equals("") || USER.getUserPassword().equals("") || USER.getUserName().equals("")) {
 		PrintWriter script = response.getWriter();
@@ -28,6 +29,8 @@
 
 		if (result >= 0) {
 			session.setAttribute("userID", USER.getUserID());
+			Cookie cookie_id = new Cookie("userID", userID);
+			response.addCookie(cookie_id);
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("alert('회원가입에 성공하였습니다.')");
