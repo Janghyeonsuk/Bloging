@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8 ">
-<title>JSP BLOG 사이트</title>
+<title>Bloging</title>
 </head>
 <body>
     <script>
