@@ -33,7 +33,7 @@ jsp을 이용해서 배우기만하고 지나가면 까먹던 지식들을 바�
 
 
 ## 3. DB-ER다이어그램
-![image](https://user-images.githubusercontent.com/74901548/204538667-dea8a2cf-af78-4b87-9134-e6b93a1edbba.png)
+![image](https://user-images.githubusercontent.com/74901548/204549731-894680ad-5636-4e93-a48d-ec4fa388e111.png)
 
 
 ## 4. 기능
