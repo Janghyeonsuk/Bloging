@@ -17,6 +17,7 @@
 
 [5. 구현한 기능](#5-구현한-기능)
 
+[6. 실행 방법](#5-실행-방법)
 
 ## 1. 개요
 
@@ -26,6 +27,7 @@ jsp을 이용해서 배우기만하고 지나가면 까먹던 지식들을 바�
 서로의 정보들을 공유할 수 있는 블로그 피드와 하고 싶은말을 적는 자유게시판이 있습니다.
 
 ## 2. 기술
+
 1. Web Front : `HTML5` , `CSS`, `JavaScript`, `Bootstrap`
 2. Web Server :  `Java`, `ApacheTomcat`
 3. DBMS : `MySQL`
@@ -33,10 +35,12 @@ jsp을 이용해서 배우기만하고 지나가면 까먹던 지식들을 바�
 
 
 ## 3. DB-ER다이어그램
+
 ![image](https://user-images.githubusercontent.com/74901548/204549731-894680ad-5636-4e93-a48d-ec4fa388e111.png)
 
 
 ## 4. 기능
+
 1. 로그인/회원가입
 2. 블로그 CRUD
 3. 게시판 CRUD
@@ -56,4 +60,11 @@ jsp을 이용해서 배우기만하고 지나가면 까먹던 지식들을 바�
 6. 관리자 페이지 - 4가지 옵션을 통해서 블로그글을 전체로 비활성화, 활화 / 게시판글을 전체로 비활성화, 활성화 가능
 
 
+## 6. 실행 방법
 
+1. 로그인 / 회원가입
+메뉴 오른쪽 위에 login 버튼으로 사용 / 폼태그로 로그인 가능
+계정이 없을 시에 login 창 화면 아래에 회원가입 창으로 이동 후 회원가입 가능
+회원가입시 DB User 테이블에 저장
+![image](https://user-images.githubusercontent.com/74901548/204676109-9384ae6d-c392-44f8-8696-07fc50dc0987.png)
+![image](https://user-images.githubusercontent.com/74901548/204676181-95d79905-1922-475d-a97f-23a4b4d147dc.png)
